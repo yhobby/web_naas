@@ -1,0 +1,221 @@
+{% extends "dashboard/base.html" %}
+
+{% block title %}NaaS{% endblock %}
+
+{% block main %}
+<h1 class="mt-4">Dashboard</h1>
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item active">Dashboard</li>
+</ol>
+
+<div class="row">
+    <div class="col-xl-12">
+        <div class="card mb-2">
+            <div class="card-header">
+                <i class="fas fa-chart-bar mr-1"></i>
+                Device City
+            </div>
+            <div class="card-body"><canvas id="DeviceCity" width="100%" height="25"></canvas></div>
+        </div>
+    </div>
+<!--    <div class="col-xl-6">-->
+<!--        <div class="card mb-4">-->
+<!--            <div class="card-header">-->
+<!--                <i class="fas fa-chart-area mr-1"></i>-->
+<!--                AppsAreaChart-->
+<!--            </div>-->
+<!--            <div class="card-body"><canvas id="AppsAreaChart" width="100%" height="40"></canvas></div>-->
+<!--        </div>-->
+<!--    </div>-->
+    <div class="col-xl-6">
+        <div class="card mb-4">
+            <div class="card-header">
+                <i class="fas fa-chart-bar mr-1"></i>
+                Device Model
+            </div>
+            <div class="card-body"><canvas id="DeviceModel" width="100%" height="40"></canvas></div>
+        </div>
+    </div>
+    <div class="col-xl-6">
+        <div class="card mb-4">
+            <div class="card-header">
+                <i class="fas fa-chart-bar mr-1"></i>
+                Device Type
+            </div>
+            <div class="card-body"><canvas id="DeviceType" width="100%" height="40"></canvas></div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block body %}
+<!--<script>-->
+<!--// Area Chart-->
+<!--// Set new default font family and font color to mimic Bootstrap's default styling-->
+<!--Chart.defaults.global.defaultFontFamily = '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';-->
+<!--Chart.defaults.global.defaultFontColor = '#292b2c';-->
+
+<!--// Area Chart Apps-->
+<!--var ctx = document.getElementById("AppsAreaChart");-->
+<!--var AppsAreaChart = new Chart(ctx, {-->
+<!--  type: 'line',-->
+<!--  data: {-->
+<!--    labels: {{ apps_labels|safe }},-->
+<!--    datasets: [{-->
+<!--      label: "Name",-->
+<!--      lineTension: 0.3,-->
+<!--      backgroundColor: "rgba(2,117,216,0.2)",-->
+<!--      borderColor: "rgba(2,117,216,1)",-->
+<!--      pointRadius: 5,-->
+<!--      pointBackgroundColor: "rgba(2,117,216,1)",-->
+<!--      pointBorderColor: "rgba(255,255,255,0.8)",-->
+<!--      pointHoverRadius: 5,-->
+<!--      pointHoverBackgroundColor: "rgba(2,117,216,1)",-->
+<!--      pointHitRadius: 50,-->
+<!--      pointBorderWidth: 2,-->
+<!--      data: {{ apps_data|safe }},-->
+<!--    }],-->
+<!--  },-->
+<!--  options: {-->
+<!--    scales: {-->
+<!--      xAxes: [{-->
+<!--        time: {-->
+<!--          unit: 'date'-->
+<!--        },-->
+<!--        gridLines: {-->
+<!--          display: false-->
+<!--        },-->
+<!--        ticks: {-->
+<!--          maxTicksLimit: 7-->
+<!--        }-->
+<!--      }],-->
+<!--      yAxes: [{-->
+<!--        ticks: {-->
+<!--          min: 0,-->
+<!--          max: 10,-->
+<!--          maxTicksLimit: 5-->
+<!--        },-->
+<!--        gridLines: {-->
+<!--          color: "rgba(0, 0, 0, .125)",-->
+<!--        }-->
+<!--      }],-->
+<!--    },-->
+<!--    legend: {-->
+<!--      display: false-->
+<!--    }-->
+<!--  }-->
+<!--});-->
+<!--</script>-->
+<script>
+// Bar Chart
+// Set new default font family and font color to mimic Bootstrap's default styling
+Chart.defaults.global.defaultFontFamily = '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
+Chart.defaults.global.defaultFontColor = '#292b2c';
+
+// Bar Chart Device Model
+var ctx = document.getElementById("DeviceModel");
+var DeviceModel = new Chart(ctx, {
+  type: 'bar',
+  data: {
+    labels: {{ model_labels|safe }},
+    datasets: [{
+      label: "Quantity",
+      backgroundColor: "rgba(2,117,216,1)",
+      borderColor: "rgba(2,117,216,1)",
+      data: {{ model_data|safe }},
+    }],
+  },
+  options: {
+    scales: {
+      xAxes: [{
+        time: {
+          unit: 'Model'
+        },
+        gridLines: {
+          display: false
+        },
+        ticks: {
+          maxTicksLimit: 30
+        }
+      }],
+      yAxes: [{
+        ticks: {
+          min: 0,
+          max: 40,
+          maxTicksLimit: 10
+        },
+        gridLines: {
+          display: true
+        }
+      }],
+    },
+    legend: {
+      display: false
+    }
+  }
+});
+
+// Bar Chart Device City
+var ctx = document.getElementById("DeviceCity");
+var DeviceCity = new Chart(ctx, {
+  type: 'bar',
+  data: {
+    labels: {{ city_labels|safe }},
+    datasets: [{
+      label: "Quantity",
+      backgroundColor: "rgba(2,117,216,1)",
+      borderColor: "rgba(2,117,216,1)",
+      data: {{ city_data|safe }},
+    }],
+  },
+  options: {
+    scales: {
+      xAxes: [{
+        time: {
+          unit: 'City'
+        },
+        gridLines: {
+          display: false
+        },
+        ticks: {
+          maxTicksLimit: 30
+        }
+      }],
+      yAxes: [{
+        ticks: {
+          min: 0,
+          max: 60,
+          maxTicksLimit: 10
+        },
+        gridLines: {
+          display: true
+        }
+      }],
+    },
+    legend: {
+      display: false
+    }
+  }
+});
+</script>
+
+<script>
+// Pie Chart
+// Set new default font family and font color to mimic Bootstrap's default styling
+Chart.defaults.global.defaultFontFamily = '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
+Chart.defaults.global.defaultFontColor = '#292b2c';
+
+// Pie Chart Example
+var ctx = document.getElementById("DeviceType");
+var DeviceType = new Chart(ctx, {
+  type: 'pie',
+  data: {
+    labels: {{ type_labels|safe }},
+    datasets: [{
+      data: {{ type_data|safe }},
+      backgroundColor: ['#007bff', '#dc3545', '#ffc107', '#28a745'],
+    }],
+  },
+});
+</script>
+{% endblock %}

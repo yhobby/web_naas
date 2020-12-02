@@ -1,0 +1,80 @@
+{% extends "dashboard/base.html" %}
+
+{% block title %}Scripts{% endblock %}
+
+{% block main %}
+
+<h1 class="mt-4">Scripts</h1>
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item"><a href="/">Dashboard</a></li>
+    <li class="breadcrumb-item active">CRON</li>
+</ol>
+
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th scope="col">#</th>
+        <th scope="col">Time</th>
+        <th scope="col">Name</th>
+        <th scope="col">Comment</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <th scope="row">1</th>
+        <td>00:01</td>
+        <td>network_discovery</td>
+        <td>Check available and availability of hosts</td>
+    </tr>
+    <tr>
+        <th scope="row">2</th>
+        <td>00:05</td>
+        <td>device_info.py</td>
+        <td>Update the main table of database</td>
+    </tr>
+    <tr>
+        <th scope="row">3</th>
+        <td>00:15</td>
+        <td>db.py</td>
+        <td>Delete and create other tables of database</td>
+    </tr>
+    <tr>
+        <th scope="row">4</th>
+        <td>00:17</td>
+        <td>boards_info.py</td>
+        <td>Collect boards information</td>
+    </tr>
+    <tr>
+        <th scope="row">5</th>
+        <td>00:20</td>
+        <td>Other database scripts</td>
+        <td>Update other database tables</td>
+    </tr>
+    <tr>
+        <th scope="row">6</th>
+        <td>00:30</td>
+        <td>Backup</td>
+        <td>Collect & store config files from all devices</td>
+    </tr>
+    <tr>
+        <th scope="row">7</th>
+        <td>01:00</td>
+        <td>manager</td>
+        <td>Performs some action</td>
+    </tr>
+    <tr>
+        <th scope="row">8</th>
+        <td>05:50</td>
+        <td>ipa</td>
+        <td>Start scripts</td>
+    </tr>
+    <tr>
+        <th scope="row">9</th>
+        <td>--:--</td>
+        <td>source_control.py</td>
+        <td>Run after use "commit" command on device</td>
+    </tr>
+  </tbody>
+</table>
+
+{% endblock %}

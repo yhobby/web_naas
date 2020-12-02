@@ -1,0 +1,199 @@
+{% extends "dashboard/base.html" %}
+
+{% block title %}Scripts{% endblock %}
+
+{% block main %}
+
+<h1 class="mt-4">Scripts</h1>
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item"><a href="/">Dashboard</a></li>
+    <li class="breadcrumb-item active">Send commands</li>
+</ol>
+
+<p>send_commands.py</p><br>
+
+<form action="http://10.147.80.13:8080/job/send%20commands/buildWithParameters?" method="GET" target="hiddenFrame">
+    <input type="hidden" class="form-control" name="token" value="sendcommands">
+    <div class="form-group row">
+        <label for="module" class="col-sm-2 col-form-label">Device</label>
+        <div class="col-sm-4">
+            <select class="form-control" id="module" name="DEVICE">
+                <option>NE40E-X8A</option>
+                <option>CX600-X3</option>
+                <option>Switches</option>
+                <option>FW</option>
+                <option>CE</option>
+                <option>ATN950B</option>
+                <option>ADSL</option>
+                <option>KOS-KS5004-CE-2</option>
+                <option>PAV-PA0012-CE-2</option>
+                <option>URK-UR4021-CE-1</option>
+                <option>UST-UK0003-CE-1</option>
+                <option>URK-UR4021-CE-2</option>
+                <option>KOS-KS5004-CE-1</option>
+                <option>AST-ATS32-PE-1</option>
+                <option>SHY-SH0005-CE-2</option>
+                <option>TAR-ATS45-CE-2</option>
+                <option>AKT-AU0001-CE-2</option>
+                <option>TAR-ATS45-CE-1</option>
+                <option>KYZ-KZTR05-CE-2</option>
+                <option>UST-UK0003-CE-2</option>
+                <option>SHY-SH0005-CE-1</option>
+                <option>AST-ATS32-PE-2</option>
+                <option>SEM-SETR01-CE-1</option>
+                <option>PAV-PA0012-CE-1</option>
+                <option>ATY-AT7121-CE-1</option>
+                <option>ATY-AT7121-CE-2</option>
+                <option>AKT-AU0001-CE-1</option>
+                <option>KAR-KA0009-CE-1</option>
+                <option>AQT-TUSM14-CE-1</option>
+                <option>SEM-SETR01-CE-2</option>
+                <option>KYZ-KZTR05-CE-1</option>
+                <option>AQT-TUSM14-CE-2</option>
+                <option>PET-PE0001-CE-2</option>
+                <option>KAR-KA0009-CE-2</option>
+                <option>PET-PE0001-CE-1</option>
+                <option>KOK-KOTR01-CE-2</option>
+                <option>KOK-KOTR01-CE-1</option>
+                <option>ALM-CS-LSW-1</option>
+                <option>ALM-CS-LSW-2</option>
+                <option>ALM-IPA-LSW-1</option>
+                <option>SHY-CS-LSW-1</option>
+                <option>AST-CS-LSW-1</option>
+                <option>SHY-CS-LSW-2</option>
+                <option>AQT-CS-LSW-1</option>
+                <option>AQT-CS-LSW-2</option>
+                <option>ALM-SEQ-SERVICE-LSW</option>
+                <option>AST-CS-LSW-2</option>
+                <option>ALM-MIRR-LSW-1</option>
+                <option>ALM-OSS-LSW-3</option>
+                <option>ALM-OSS-LSW-6</option>
+                <option>ALM-OSS-LSW-5</option>
+                <option>ALM-OSS-LSW-4</option>
+                <option>ALM-PRO-LSW-4</option>
+                <option>ALM-SEQ-OM-LSW</option>
+                <option>AQT-PRO-LSW-3</option>
+                <option>SHY-PRO-LSW-4</option>
+                <option>ALM-PRS-LSW-2</option>
+                <option>AST-PRO-LSW-3</option>
+                <option>ALM-PRS-LSW-1</option>
+                <option>ALM-IMS-LSW-2</option>
+                <option>ALM-IMS-LSW-4</option>
+                <option>ALM-IMS-LSW-3</option>
+                <option>ALM-IMS-LSW-6</option>
+                <option>ALM-IMS-LSW-5</option>
+                <option>ALM-SPS-LSW-1</option>
+                <option>ALM-IMS-LSW-1</option>
+                <option>ALM-SDB-LSW-2</option>
+                <option>AST-SPS-LSW-1</option>
+                <option>ALM-SDB-LSW-7</option>
+                <option>AST-SPS-LSW-2</option>
+                <option>ALM-SDB-LSW-1</option>
+                <option>ALM-SDB-LSW-4</option>
+                <option>ALM-SPS-LSW-2</option>
+                <option>ALM-SDB-LSW-8</option>
+                <option>ALM-PRO-LSW-3</option>
+                <option>AQT-PRO-LSW-2</option>
+                <option>AST-SDB-LSW-1</option>
+                <option>AST-PRO-LSW-2</option>
+                <option>ALM-SDB-LSW-6</option>
+                <option>SHY-PRO-LSW-3</option>
+                <option>AST-SDB-LSW-4</option>
+                <option>AST-SDB-LSW-8</option>
+                <option>ALM-SDB-LSW-3</option>
+                <option>AST-SDB-LSW-2</option>
+                <option>AST-SDB-LSW-7</option>
+                <option>AST-SDB-LSW-6</option>
+                <option>ALM-SDB-LSW-5</option>
+                <option>AST-SDB-LSW-5</option>
+                <option>AST-SDB-LSW-3</option>
+                <option>ALM-OSS-LSW-2</option>
+                <option>ALM-OSS-LSW-1</option>
+                <option>ALM-6001-AGG-1</option>
+                <option>ALM-ATS48-AGG-2</option>
+                <option>ALM-6001-AGG-2</option>
+                <option>ALM-ATS48-AGG-1</option>
+                <option>ALM-ATS48-RR-1</option>
+                <option>ALM-ATS48-CE-2</option>
+                <option>ALM-ATS48-CAF-1</option>
+                <option>AST-ATS32-CAF-1</option>
+                <option>AST-ATS32-RR-2</option>
+                <option>ALM-ATS48-CE-1</option>
+                <option>ALM-0076-AGG-1</option>
+                <option>ALM-0076-AGG-2</option>
+                <option>SHY-PRO-LSW-2</option>
+                <option>ALM-PRO-LSW-1</option>
+                <option>ALM-PRO-LSW-2</option>
+                <option>AST-PRO-LSW-1</option>
+                <option>SHY-PRO-LSW-1</option>
+                <option>AQT-PRO-LSW-1</option>
+                <option>ALM-VAS-LSW-2</option>
+                <option>AST-VAS-LSW-1</option>
+                <option>ALM-VAS-LSW-1</option>
+                <option>KAZGURT-SH7245-CE-1</option>
+                <option>TURGEN-AL7240-CE-1</option>
+                <option>MAIKUDUK-KA7452-CE-1</option>
+                <option>SHEMONAIHA-UK7052-CE-1</option>
+                <option>TEMIRTAU-KA1505-CE-1</option>
+                <option>AYAGOZ-UKTR52-CE-1</option>
+                <option>AKSUKENT-SH7204-CE-1</option>
+                <option>AKSU-PA5048-CE-1</option>
+                <option>TALDYKORGAN-ALTR74-CE-1</option>
+                <option>SHAHTINSK-KA5121-CE-1</option>
+                <option>ZYRYANOVSK-UK5048-CE-1</option>
+                <option>SARYAGASH-SH5354-CE-1</option>
+                <option>AKSAI-UR4552-CE-1</option>
+                <option>SHARDARA-SH7125-CE-1</option>
+                <option>TEKELI-AL1507-CE-1</option>
+                <option>KARGALY-AL7286-CE-1</option>
+                <option>SHIELI-KZ5022-CE-1</option>
+                <option>ZHARKENT-AL0113-CE-1</option>
+                <option>ARYS-SH5253-CE-1</option>
+                <option>ZHEZKAZGAN-KA1504-CE-1</option>
+                <option>BALHASH-KATR52-CE-1</option>
+                <option>MERKE-TA7076-CE-1</option>
+                <option>BEYNEU-AU5016-CE-1</option>
+                <option>HROMTAU-AK7116-CE-1</option>
+                <option>ZHETYSAI-SH5305-CE-1</option>
+                <option>AST-CON-DSL</option>
+                <option>KAR-CON-DSL</option>
+                <option>UST-CON-DSL</option>
+                <option>ALM-CON-DSL</option>
+                <option>PAV-CON-DSL</option>
+                <option>SHY-CON-DSL</option>
+                <option>KOS-CON-DSL</option>
+                <option>TAR-CON-DSL</option>
+                <option>URK-CON-DSL</option>
+                <option>ATY-CON-DSL</option>
+                <option>AQT-CON-DSL</option>
+                <option>KOK-CON-DSL</option>
+                <option>SEM-CON-DSL</option>
+                <option>PET-CON-DSL</option>
+                <option>KYZ-CON-DSL</option>
+                <option>AKT-CON-DSL</option>
+            </select>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="command" class="col-sm-2 col-form-label">Command</label>
+        <div class="col-sm-4">
+            <textarea class="form-control" id="command" placeholder="Write commands" name="COMMAND" required></textarea>
+            <small class="form-text text-muted">Display or configuration commands</small>
+        </div>
+    </div>
+    <button onclick="showAlert()" type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+{% endblock %}
+
+{% block body %}
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+
+<script>
+function showAlert() {
+var myText = "You've done it!";
+alert (myText);
+}
+</script>
+{% endblock %}

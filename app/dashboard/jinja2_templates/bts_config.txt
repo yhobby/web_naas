@@ -1,0 +1,57 @@
+interface {{interface}}.{{vlan_abis}}
+vlan-type dot1q {{vlan_abis}}
+description {{bts}}_Abis
+ip binding vpn-instance MA
+ip address {{ip_abis}} 255.255.255.240
+statistic enable
+trust upstream default
+trust 8021p outbound
+#
+interface {{interface}}.{{vlan_iub}}
+vlan-type dot1q {{vlan_iub}}
+description {{bts}}_IuB
+ip binding vpn-instance MA
+ip address {{ip_iub}} 255.255.255.240
+statistic enable
+trust upstream default
+trust 8021p outbound
+#
+interface {{interface}}.{{vlan_om}}
+vlan-type dot1q {{vlan_om}}
+description {{bts}}_OM
+ip binding vpn-instance MA
+ip address {{ip_om}} 255.255.255.240
+statistic enable
+trust upstream default
+dhcp select relay
+ip relay address {{relay1}}
+ip relay address {{relay2}}
+ip relay giaddr {{giaddr}}
+trust 8021p outbound
+#
+interface {{interface}}.{{vlan_s1c}}
+vlan-type dot1q {{vlan_s1c}}_S1-C
+description {{bts}}
+ip binding vpn-instance MA
+ip address {{ip_s1c}} 255.255.255.240
+statistic enable
+trust upstream default
+trust 8021p outbound
+#
+interface {{interface}}.{{vlan_s1u}}
+vlan-type dot1q {{vlan_s1u}}
+description {{bts}}_S1-U
+ip binding vpn-instance MA
+ip address {{ip_s1u}} 255.255.255.240
+statistic enable
+trust upstream default
+trust 8021p outbound
+#
+interface {{interface}}.{{vlan_x2}}
+vlan-type dot1q {{vlan_x2}}
+description {{bts}}_X2
+ip binding vpn-instance MA
+ip address {{ip_x2}} 255.255.255.240
+statistic enable
+trust upstream default
+trust 8021p outbound

@@ -1,0 +1,35 @@
+{% extends "dashboard/base.html" %}
+
+{% block title %}Scripts{% endblock %}
+
+{% block main %}
+
+<h1 class="mt-4">Scripts</h1>
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item"><a href="/">Dashboard</a></li>
+    <li class="breadcrumb-item active">New volume</li>
+</ol>
+
+<strong>Инструкция</strong>
+<ol>
+  <li>Обновляем Excel файл "Transmission Bandwidth_zabbix.xlsm" в папке назначения <a href="smb://10.147.32.18/all/new_volume/" target="_blank">new_volume</a></li>
+  <li>Для изменения полосы пропускания на определенном канале, необходимо поставить метку "Changed" в последнем столбце Excel файла</li>
+  <li>Нажимаем кнопку "Submit" чтобы запустить скрипт. Результат придет на почту от Jenkins'a</li>
+</ol>
+
+<form action="http://jenkins.tele2.kz:8080/job/new_volume/job/mail%20approve/build?token=newvolume" method="GET" target="hiddenFrame">
+    <button onclick="showAlert()" type="submit" class="btn btn-danger">Submit</button>
+</form>
+{% endblock %}
+
+{% block body %}
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+
+<script>
+function showAlert() {
+var myText = "You've done it!";
+alert (myText);
+}
+</script>
+{% endblock %}

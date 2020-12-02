@@ -1,0 +1,75 @@
+{% extends "dashboard/base.html" %}
+
+{% block title %}Database{% endblock %}
+
+{% block main %}
+
+<h1 class="mt-4">Database</h1>
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item"><a href="/">Dashboard</a></li>
+    <li class="breadcrumb-item active">Ports Info</li>
+</ol>
+<div class="card mb-4">
+    <div class="card-header">
+        <i class="fas fa-table mr-1"></i>
+        ip_core.db
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Hostname</th>
+                        <th>IP</th>
+                        <th>Interface</th>
+                        <th>Status</th>
+                        <th>Description</th>
+                        <th>MTU</th>
+                        <th>Port BW</th>
+                        <th>Current BW</th>
+                        <th>SFP Vendor</th>
+                        <th>SFP Distance</th>
+                        <th>SFP Mode</th>
+                        <th>Port Mode</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th>Hostname</th>
+                        <th>IP</th>
+                        <th>Interface</th>
+                        <th>Status</th>
+                        <th>Description</th>
+                        <th>MTU</th>
+                        <th>Port BW</th>
+                        <th>Current BW</th>
+                        <th>SFP Vendor</th>
+                        <th>SFP Distance</th>
+                        <th>SFP Mode</th>
+                        <th>Port Mode</th>
+                    </tr>
+                </tfoot>
+                <tbody>
+                    {% for port in ports %}
+                    <tr>
+                        <td>{{ port.hostname }}</td>
+                        <td>{{ port.ip }}</td>
+                        <td>{{ port.interface }}</td>
+                        <td>{{ port.status }}</td>
+                        <td>{{ port.description }}</td>
+                        <td>{{ port.mtu }}</td>
+                        <td>{{ port.port_bw }}</td>
+                        <td>{{ port.current_bw }}</td>
+                        <td>{{ port.sfp_vendor }}</td>
+                        <td>{{ port.sfp_dist }}</td>
+                        <td>{{ port.sfp_mode }}</td>
+                        <td>{{ port.port_mode }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

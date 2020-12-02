@@ -1,0 +1,151 @@
+{% extends "dashboard/base.html" %}
+
+{% block title %}Overview{% endblock %}
+
+{% block main %}
+<h1 class="mt-4">Apps overview</h1>
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item"><a href="/">Dashboard</a></li>
+    <li class="breadcrumb-item active">Overview</li>
+</ol>
+
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th scope="col">#</th>
+        <th scope="col">Type</th>
+        <th scope="col">Name</th>
+        <th scope="col">TAG</th>
+        <th scope="col">Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr class="table-success">
+        <th scope="row">1</th>
+        <td>Open Source</td>
+        <td><a href="http://tacacs.tele2.kz:8008/" target="_blank">TACACS+</a></td>
+        <td>AAA</td>
+        <td>Sends reports in case of invalid authentication, command authorization is available</td>
+    </tr>
+    <tr class="table-success">
+        <th scope="row">2</th>
+        <td>Open Source</td>
+        <td><a href="http://syslog.tele2.kz:9000/" target="_blank">Graylog</a></td>
+        <td>Syslog</td>
+        <td>Saves logs (alarms + events + user actions) from all devices</td>
+    </tr>
+    <tr class="table-success">
+        <th scope="row">3</th>
+        <td>Open Source</td>
+        <td><a href="http://ipam.tele2.kz/" target="_blank">Netbox</a></td>
+        <td>IPAM</td>
+        <td>For planning ip addresses</td>
+    </tr>
+    <tr class="table-success">
+        <th scope="row">4</th>
+        <td>Open Source</td>
+        <td><a href="http://jenkins.tele2.kz:8080/" target="_blank">Jenkins</a></td>
+        <td>Automation</td>
+        <td>Support building, deploying and automating any project.</td>
+    </tr>
+    <tr class="table-success">
+        <th scope="row">5</th>
+        <td>Open Source</td>
+        <td><a href="https://git.tele2.kz/" target="_blank">Gitlab</a></td>
+        <td>Git</td>
+        <td>Version control system for scripts and device configurations (back up)</td>
+    </tr>
+    <tr class="table-success">
+        <th scope="row">6</th>
+        <td>Open Source</td>
+        <td><a href="http://10.147.32.23/nfsen/nfsen.php" target="_blank">Nfsen</a></td>
+        <td>Netflow</td>
+        <td>Flow monitoring</td>
+    </tr>
+    <tr class="table-success">
+        <th scope="row">7</th>
+        <td>Open Source</td>
+        <td><a href="https://grafana.tele2.kz/" target="_blank">Grafana</a></td>
+        <td>Graphs</td>
+        <td>Visualization data</td>
+    </tr>
+    <tr class="table-success">
+        <th scope="row">8</th>
+        <td>Open Source</td>
+        <td><a href="https://zabbix.ipa.tele2.kz/" target="_blank">Zabbix</a></td>
+        <td>Monitoring</td>
+        <td>Monitoring solution for network monitoring and application monitoring of millions of metrics</td>
+    </tr>
+    <tr class="table-success">
+        <th scope="row">9</th>
+        <td>Open Source</td>
+        <td><a href="http://10.147.64.15/syspass/" target="_blank">Syspass</a></td>
+        <td>Password Manager</td>
+        <td>Store passwords</td>
+    </tr>
+    <tr class="table-success">
+        <th scope="row">10</th>
+        <td>Open Source</td>
+        <td>Looking Glass</td>
+        <td>LG</td>
+        <td>Used to troubleshoot routing issues across the Internet</td>
+    </tr>
+    <tr class="table-success">
+        <th scope="row">11</th>
+        <td>Open Source</td>
+        <td><a href="http://10.145.132.36/mediawiki/" target="_blank">Wikipedia</a></td>
+        <td>Documentation</td>
+        <td>Used to troubleshoot routing issues across the Internet</td>
+    </tr>
+    <tr class="table-primary">
+        <th scope="row">12</th>
+        <td>Proprietary</td>
+        <td><a href="https://10.147.37.4:31943" target="_blank">NCE</a></td>
+        <td>Monitoring</td>
+        <td>Fault management system, SDN etc.</td>
+    </tr>
+    <tr class="table-primary">
+        <th scope="row">13</th>
+        <td>Proprietary</td>
+        <td>Anchor</td>
+        <td>Probes</td>
+        <td>Virtual RIPE NCC probes in 12 cities</td>
+    </tr>
+    <tr class="table-warning">
+        <th scope="row">14</th>
+        <td>Own development</td>
+        <td>Robot</td>
+        <td>Bot</td>
+        <td>Telegram Bot</td>
+    </tr>
+    <tr class="table-warning">
+        <th scope="row">15</th>
+        <td>Own development</td>
+        <td>Devnet</td>
+        <td>Automation</td>
+        <td>Automation server for launch own development scripts</td>
+    </tr>
+    <tr class="table-warning">
+        <th scope="row">16</th>
+        <td>Own development</td>
+        <td>Mirroring</td>
+        <td>VMs</td>
+        <td>Virtual VMs in 12 cities for mirroring traffic</td>
+    </tr>
+    <tr class="table-warning">
+        <th scope="row">17</th>
+        <td>Own development</td>
+        <td>Web monitoring</td>
+        <td>Monitoring</td>
+        <td>Show availability of social networks</td>
+    </tr>
+    <tr class="table-warning">
+        <th scope="row">18</th>
+        <td>Own development</td>
+        <td>NaaS</td>
+        <td>Web App</td>
+        <td>Orchestration system</td>
+    </tr>
+  </tbody>
+</table>
+{% endblock %}

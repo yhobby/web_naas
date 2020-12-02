@@ -1,0 +1,78 @@
+{% extends "dashboard/base.html" %}
+
+{% block title %}Database{% endblock %}
+
+{% block main %}
+
+<h1 class="mt-4">Database</h1>
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item"><a href="/">Dashboard</a></li>
+    <li class="breadcrumb-item active">BGP Info</li>
+</ol>
+<div class="card mb-4">
+    <div class="card-header">
+        <i class="fas fa-table mr-1"></i>
+        ip_core.db
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Hostname</th>
+                        <th>IP</th>
+                        <th>VRF</th>
+                        <th>Peer</th>
+                        <th>Description</th>
+                        <th>Version</th>
+                        <th>ASN</th>
+                        <th>Uptime</th>
+                        <th>State</th>
+                        <th>Routes</th>
+                        <th>BFD</th>
+                        <th>Route-limit</th>
+                        <th>Password</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th>Hostname</th>
+                        <th>IP</th>
+                        <th>VRF</th>
+                        <th>Peer</th>
+                        <th>Description</th>
+                        <th>Version</th>
+                        <th>ASN</th>
+                        <th>Uptime</th>
+                        <th>State</th>
+                        <th>Routes</th>
+                        <th>BFD</th>
+                        <th>Route-limit</th>
+                        <th>Password</th>
+                    </tr>
+                </tfoot>
+                <tbody>
+                    {% for bgp in bgps %}
+                    <tr>
+                        <td>{{ bgp.hostname }}</td>
+                        <td>{{ bgp.ip }}</td>
+                        <td>{{ bgp.vrf }}</td>
+                        <td>{{ bgp.peer }}</td>
+                        <td>{{ bgp.description }}</td>
+                        <td>{{ bgp.version }}</td>
+                        <td>{{ bgp.asn }}</td>
+                        <td>{{ bgp.uptime }}</td>
+                        <td>{{ bgp.state }}</td>
+                        <td>{{ bgp.routes }}</td>
+                        <td>{{ bgp.bfd }}</td>
+                        <td>{{ bgp.route_limit }}</td>
+                        <td>{{ bgp.password }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

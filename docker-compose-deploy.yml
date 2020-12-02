@@ -1,0 +1,29 @@
+version: '3.7'
+
+services:
+  app:
+    build: .
+    volumes:
+      - static_data:/vol/web
+      - ../devnet/database/:/app/db/
+      - db:/app
+    environment:
+      - DEBUG=0
+      - SECRET_KEY=passwordcouldntbehacked
+      - ALLOWED_HOSTS=10.147.32.18,naas.tele2.kz,0.0.0.0
+    logging:
+      driver: none
+
+  proxy:
+    build:
+      context: ./proxy
+    volumes:
+      - static_data:/vol/static
+    ports:
+      - "8080:8080"
+    depends_on:
+      - app
+
+volumes:
+  static_data:
+  db:

@@ -1,0 +1,22 @@
+{% extends "dashboard/base.html" %}
+{% load static %}
+
+{% block title %}Feedback{% endblock %}
+
+{% block links %}
+<link rel="stylesheet" href="{% static 'dashboard/css/feedback.css' %}">
+{% endblock %}
+
+{% block main %}
+<div class="wrapper">
+    <input type="checkbox" id="btn">
+    <img class="img-bulb" id="bulb-off" src="{% static 'dashboard/img/bulb-off.png' %}">
+    <img class="img-bulb" id="bulb-on" src="{% static 'dashboard/img/bulb-on.png' %}">
+    <label for="btn" class="btn">
+        <span></span>
+    </label>
+</div>
+{% endblock %}
+
+{% block footer %}
+{% endblock %}

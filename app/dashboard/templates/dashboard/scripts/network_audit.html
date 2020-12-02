@@ -1,0 +1,79 @@
+{% extends "dashboard/base.html" %}
+
+{% block title %}Scripts{% endblock %}
+
+{% block links %}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+{% endblock %}
+
+{% block main %}
+
+<h1 class="mt-4">Scripts</h1>
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item"><a href="/">Dashboard</a></li>
+    <li class="breadcrumb-item active">Network Audit</li>
+</ol>
+
+<form action="http://10.147.80.13:8080/job/Audit/buildWithParameters?" method="GET" target="hiddenFrame">
+    <input type="hidden" class="form-control" name="token" value="audit">
+    <div class="form-group row">
+        <label for="module" class="col-sm-2 col-form-label">*Module Name</label>
+        <div class="col-sm-4">
+            <select class="form-control" id="module" name="Module">
+                <option>check_snmp</option>
+                <option>check_ip_vpn</option>
+                <option>delete_unused_configuration</option>
+                <option>check_aaa</option>
+                <option>check_security</option>
+                <option>check_acl</option>
+                <option>check_ntp</option>
+                <option>check_qos_on_interfaces</option>
+                <option>check_vlan</option>
+                <option>l2vpn_bts_for_kcell</option>
+            </select>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="device" class="col-sm-2 col-form-label">*Devices</label>
+        <div class="col-sm-4">
+            <select class="form-control" id="device" name="Devices">
+                <option>NE</option>
+                <option>CX</option>
+                <option>FW</option>
+                <option>SW</option>
+                <option>ATN</option>
+                <option>ADSL</option>
+                <option>ALL</option>
+            </select>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="loopback" class="col-sm-2 col-form-label">Loopback</label>
+        <div class="col-sm-4">
+            <input type="text" class="form-control" id="loopback" placeholder="ip address" name="Loopback">
+            <small class="form-text text-muted">or loopback for MGMT.</small>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="acl" class="col-sm-2 col-form-label">Additional argument</label>
+        <div class="col-sm-4">
+            <input type="text" class="form-control" id="acl" placeholder="acl number" name="Additional_argument">
+            <small class="form-text text-muted">If you are using check_acl script please provide a number of ACL.</small>
+        </div>
+    </div>
+    <button onclick="showAlert()" type="submit" class="btn btn-primary">Submit</button>
+</form>
+{% endblock %}
+
+{% block body %}
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+
+<script>
+function showAlert() {
+var myText = "You've done it!";
+alert (myText);
+}
+</script>
+
+{% endblock %}

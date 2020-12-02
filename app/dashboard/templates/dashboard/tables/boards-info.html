@@ -1,0 +1,60 @@
+{% extends "dashboard/base.html" %}
+
+{% block title %}Database{% endblock %}
+
+{% block main %}
+
+<h1 class="mt-4">Database</h1>
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item"><a href="/">Dashboard</a></li>
+    <li class="breadcrumb-item active">Boards Info</li>
+</ol>
+<div class="card mb-4">
+    <div class="card-header">
+        <i class="fas fa-table mr-1"></i>
+        ip_core.db
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Hostname</th>
+                        <th>IP</th>
+                        <th>Chassis</th>
+                        <th>Slot</th>
+                        <th>Type</th>
+                        <th>Barcode</th>
+                        <th>Board</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th>Hostname</th>
+                        <th>IP</th>
+                        <th>Chassis</th>
+                        <th>Slot</th>
+                        <th>Type</th>
+                        <th>Barcode</th>
+                        <th>Board</th>
+                    </tr>
+                </tfoot>
+                <tbody>
+                    {% for board in boards %}
+                    <tr>
+                        <td>{{ board.hostname }}</td>
+                        <td>{{ board.ip }}</td>
+                        <td>{{ board.chassis }}</td>
+                        <td>{{ board.slot }}</td>
+                        <td>{{ board.type }}</td>
+                        <td>{{ board.barcode }}</td>
+                        <td>{{ board.board }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

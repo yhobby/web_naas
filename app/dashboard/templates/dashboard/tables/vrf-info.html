@@ -1,0 +1,69 @@
+{% extends "dashboard/base.html" %}
+
+{% block title %}Database{% endblock %}
+
+{% block main %}
+
+<h1 class="mt-4">Database</h1>
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item"><a href="/">Dashboard</a></li>
+    <li class="breadcrumb-item active">VRF Info</li>
+</ol>
+<div class="card mb-4">
+    <div class="card-header">
+        <i class="fas fa-table mr-1"></i>
+        ip_core.db
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Hostname</th>
+                        <th>IP</th>
+                        <th>VRF Type</th>
+                        <th>VRF Name</th>
+                        <th>Protocol</th>
+                        <th>RD</th>
+                        <th>RT Export</th>
+                        <th>RT Import</th>
+                        <th>Diffserv</th>
+                        <th>TTL Mode</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th>Hostname</th>
+                        <th>IP</th>
+                        <th>VRF Type</th>
+                        <th>VRF Name</th>
+                        <th>Protocol</th>
+                        <th>RD</th>
+                        <th>RT Export</th>
+                        <th>RT Import</th>
+                        <th>Diffserv</th>
+                        <th>TTL Mode</th>
+                    </tr>
+                </tfoot>
+                <tbody>
+                    {% for vrf in vrfs %}
+                    <tr>
+                        <td>{{ vrf.hostname }}</td>
+                        <td>{{ vrf.ip }}</td>
+                        <td>{{ vrf.vrf_type }}</td>
+                        <td>{{ vrf.vrf_name }}</td>
+                        <td>{{ vrf.protocol }}</td>
+                        <td>{{ vrf.rd }}</td>
+                        <td>{{ vrf.rt_export }}</td>
+                        <td>{{ vrf.rt_import }}</td>
+                        <td>{{ vrf.diffserv }}</td>
+                        <td>{{ vrf.ttl_mode }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
